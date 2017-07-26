@@ -38,15 +38,15 @@ public class ProductResource {
 	@RequestMapping(value = "/rest/products/{id:\\d+}", method = RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
-		return new ResponseEntity<Product>(productService.getProductById(id), HttpStatus.OK);
+		Product productGetId = productService.getProductById(id);
+		return new ResponseEntity<Product>(productGetId, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/rest/products", method = RequestMethod.POST, 
 			produces = MediaType.APPLICATION_JSON_VALUE) 
-	public ResponseEntity<Product> saveProduct(
-			@RequestBody Product product) {
-		return new ResponseEntity<Product>(productService.saveProduct(product), HttpStatus.CREATED);
-		// return "redirect:rest/products";
+	public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
+		Product productSave = productService.saveProduct(product);
+		return new ResponseEntity<Product>(productSave, HttpStatus.CREATED);
 	}
 	
 //	@RequestMapping(value = "/rest/products/{id:\\d+}", method = RequestMethod.PUT, 

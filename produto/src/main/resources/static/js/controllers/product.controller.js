@@ -41,8 +41,8 @@ angular.module('appProduct')
 	$scope.get = function(product){
 		console.log('Inside edit');
 		productService.getProductById(product.id)
-			.then(function(product) {
-				$scope.productId = product;
+			.then(function() {
+				$scope.product = product;
 				$scope.flag = 'edit';
 		},
 		function(erro){

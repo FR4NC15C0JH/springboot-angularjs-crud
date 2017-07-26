@@ -45,10 +45,8 @@ function productService($log, $resource) {
     }
     //Get ID
     function getProductById(id) {
-		return resource.get({id : id},
-			function(id) {
-				return id;
-		},
+		return resource.get([], {id : id},
+			function() {},
 		    function(error) {
 		    	$log.error(error);
 		    }
