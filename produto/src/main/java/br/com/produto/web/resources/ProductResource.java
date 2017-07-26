@@ -51,18 +51,25 @@ public class ProductResource {
 	
 //	@RequestMapping(value = "/rest/products/{id:\\d+}", method = RequestMethod.PUT, 
 //			produces = MediaType.APPLICATION_JSON_VALUE)
-//	public String updateProduct(@PathVariable Integer id){
-//		productService.getProductById(id);
-//		System.out.println("#####TESTE-UPDATE#####");
+//	public String updateProduct(@PathVariable Integer id, Product product){
+//		Product productGetId = productService.getProductById(id);
+//		if(productGetId == null){
+//			return "redirect:/rest/products";
+//		}
+//		
+//		productService.saveProduct(product);
 //		return "redirect:/rest/products";
 //	}
 	@RequestMapping(value = "/rest/products/{id:\\d+}", method = RequestMethod.PUT, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Product> updateProduct(@PathVariable Integer id,Product product){
+	public ResponseEntity<Product> updateProduct(@PathVariable Integer id, @RequestBody Product product){
+		
 		Product products = productService.getProductById(id);
+
 		if (products == null){
 			return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
 		}
+
 		products.setId(product.getId());
 		products.setDescription(product.getDescription());
 		products.setPrice(product.getPrice());

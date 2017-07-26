@@ -33,7 +33,7 @@ public class ProdutoApplicationTests {
 	
 	@Test
 	public void testUpdate() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.put("/product/rest/products/update/130"))
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/product/rest/products/140"))
 		.andExpect(status().isOk());
 	}
 	

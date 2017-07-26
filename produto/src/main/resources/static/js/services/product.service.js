@@ -53,7 +53,7 @@ function productService($log, $resource) {
 		).$promise;
 	}
     //Update
-    function updateProduct() {
+    function updateProduct(data) {
     	return resource.update([], data,
     		function() {},
     		function(error) {

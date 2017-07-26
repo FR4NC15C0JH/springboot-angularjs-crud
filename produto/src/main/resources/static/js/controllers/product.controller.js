@@ -50,22 +50,12 @@ angular.module('appProduct')
 		});
 	};
 	
-//	$scope.get = function(id){
-//		console.log('Inside edit');
-//		productService.get({id: id},
-//			function(data) {
-//			$scope.product = data;
-//			$scope.flag = 'edit';
-//		});
-//	};
-	
-	
-	$scope.update = function(){
+	$scope.update = function(product){
 		console.log('Inside update');
 		productService.updateProduct(product)
 			.then(function() {
 				console.log(product);
-				$scope.productId = product.id;
+				$scope.product = product;
 				$scope.product = {};
 	        	$route.reload();
 	        	$scope.flag = 'update;'
