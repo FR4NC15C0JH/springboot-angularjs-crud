@@ -1,0 +1,28 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a ng-click="nextPage('/rest/products')">Home</a></li>
+  <li role="presentation"><a href="#/productsform.html">New</a></li>
+  <li role="presentation"><a href="#/products/list">List All</a></li>
+</ul>
+<div class="jumbotron">
+	<h1 class="text-center">Produtos</h1>
+</div>
+<form name="geralForm" class="row">
+	<div class="col-sm-9">
+		<div class="form-group">
+				<div class="input-group">
+					<label>Descricao</label>
+					<input name="description" class="form-control" ng-model="product.description" required>
+				</div>
+				<div class="input-group">
+					<label>Valor</label>
+					<input name="price" class="form-control" ng-model="product.price" required>
+				</div>
+		</div>
+<!-- 		<div ng-repeat="geral in geralALL"> -->
+<!-- 			<h1><span class="label label-default" ng-show="$last">{{geral.id}}</span></h1> -->
+<!-- 		</div> -->
+		<br>
+		<button type="submit" class="btn btn-success" ng-click="addProduct(product)">Salvar</button>
+		<a class="btn btn-primary" ng-click="nextPage('/rest/products')">Voltar</a>
+	</div>
+</form>

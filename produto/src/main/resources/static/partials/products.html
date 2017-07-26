@@ -1,0 +1,58 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a ng-click="nextPage('/rest/products')">Home</a></li>
+  <li role="presentation"><a href="#/products/new">New</a></li>
+  <li role="presentation"><a href="#/products/list">List All</a></li>
+</ul>
+<!-- <div class="jumbotron"> -->
+<!-- 	<h1 class="text-center">Produtos</h1> -->
+<!-- </div> -->
+<form name="productForm" class="row" method="post">
+	<div class="col-sm-9">
+		<div class="form-group">
+				<div class="input-group">
+					<label>Descricao</label>
+					<input name="description" id="description" class="form-control" ng-model="product.description" required>
+					{{product.description}}
+				</div>
+				<div class="input-group">
+					<label>Valor</label>
+					<input name="price" id="price" class="form-control" ng-model="product.price" required>
+					{{product.price}}
+				</div>
+		</div>
+<!-- 		<div ng-repeat="geral in geralALL"> -->
+<!-- 			<h1><span class="label label-default" ng-show="$last">{{geral.id}}</span></h1> -->
+<!-- 		</div> -->
+		<br>
+		<div ng-if="flag != 'edit'">
+			<button type="submit" class="btn btn-success" ng-click="addProduct(product)">Salvar</button>
+			<a class="btn btn-primary" ng-click="nextPage('/rest/products')">Voltar</a>
+		</div>
+		<div ng-if="flag == 'edit'">
+			<button type="submit" class="btn btn-success" ng-click="update()">Atualizar</button>
+			<a class="btn btn-primary" ng-click="nextPage('/rest/products')">Voltar</a>
+		</div>	
+	</div>
+</form>
+<hr />
+<div class="span6">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Descricao</th>
+				<th>Preco</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- track by - parâmetro para otimizar o render dos elementos em loops -->
+			<tr ng-repeat="product in products">
+				<td>{{ product.id }}</td>
+				<td>{{ product.description }}</td>
+				<td>{{ product.price }}</td>
+				<td><a class="btn btn-primary" ng-click="get(product)">Editar</a>
+					<a class="btn btn-danger" ng-click="remove(product)">Excluir</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
